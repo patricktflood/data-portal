@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%@ include file="/components/header.jsp" %>
+
+</head>
+
+<body>
+
+    <%@ include file="/components/navbar.jsp" %>
+
+<div class="container">
+
+    Data Extraction
+
+    <!-- /container -->
+
+    <br>
+
+    <%@ include file="/components/footer.jsp" %>
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="2evolve Data v2.0:war archive">
+    <output-path>$PROJECT_DIR$/out/artifacts/2evolve_Data_v2_0_war_archive</output-path>
+    <root id="archive" name="2evolve Data v2.0_war archive.war">
+      <element id="javaee-facet-resources" facet="PF Data v2.0/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="PF Data v2.0" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="commons-io-2.4-javadoc" />
+          <element id="library" level="project" name="commons-fileupload-1.2.2" />
+          <element id="library" level="project" name="poi-3.9-20121203" />
+          <element id="library" level="project" name="sqljdbc4" />
+          <element id="library" level="project" name="ooxml-lib" />
+          <element id="library" level="project" name="Spring-4.1.0.RELEASE" />
+          <element id="library" level="project" name="jstl-1.2-sources" />
+          <element id="library" level="project" name="jsp-api-2.2-sources" />
+        </element>
+      </element>
+      <element id="module-output" name="PF Data v2.0" />
+    </root>
+  </artifact>
+</component>
