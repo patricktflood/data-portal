@@ -14,18 +14,13 @@ public class SQLServerDBAO {
     public static String username = "paddydb";
     public static String password = "paddydb01";
 
-    private String status = "";
-
     public SQLServerDBAO() throws Exception{
 
         try {
             Class.forName(dbdriver);
             con = DriverManager.getConnection(url, username, password);
-
-            status = "created";
         }
         catch (Exception ex) {
-            status = "not created";
             throw new Exception("Couldn't open connection to database: "
                     + ex.getMessage());
         }
@@ -34,7 +29,6 @@ public class SQLServerDBAO {
     public void remove() {
         try {
             con.close();
-            status = "disconnected";
         }
         catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -112,9 +106,5 @@ public class SQLServerDBAO {
         }
 
         return results;
-    }
-
-    public String getStatus() {
-        return status;
     }
 }
