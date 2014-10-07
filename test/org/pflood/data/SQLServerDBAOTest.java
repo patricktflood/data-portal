@@ -1,4 +1,4 @@
-package org.pflood.junit;
+package org.pflood.data;
 
 import org.junit.Test;
 import org.pflood.data.SQLServerDBAO;

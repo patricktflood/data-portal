@@ -22,7 +22,6 @@ public final class ContextListener implements ServletContextListener {
         try {
             SQLServerDBAO pf_data = new SQLServerDBAO();
             context.setAttribute("pf_data", pf_data);
-            System.out.println("Database successfully initialised");
         } catch (Exception ex) {
             System.out.println("Couldn't create Paper_Data database access object: " +
                     ex.getMessage());
