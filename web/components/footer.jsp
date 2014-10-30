@@ -1,6 +1,4 @@
-<!-- The javascript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+
 <script src="../../components/js/jquery.js"></script>
 <script src="../../components/js/bootstrap-transition.js"></script>
 <script src="../../components/js/bootstrap-alert.js"></script>
