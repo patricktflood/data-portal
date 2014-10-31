@@ -10,7 +10,7 @@
     <div class="container">
 
         <br>
-        <h3>Health Check Results for file.xlsx</h3>
+        <h3>Health Check Results for ${filename}</h3>
         <br>
 
         <table class="table">

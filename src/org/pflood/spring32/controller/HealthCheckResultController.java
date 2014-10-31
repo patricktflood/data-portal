@@ -45,13 +45,13 @@ public class HealthCheckResultController {
 
         // Form validation
         // TODO - Replace with client side validation
-        if (uploadedFile.isEmpty() == true && program.isEmpty() == true){
+        if (uploadedFile.isEmpty() && program.isEmpty()){
             return new ModelAndView("error_pages/error_page_both");
         }
-        if (uploadedFile.isEmpty() == true){
+        if (uploadedFile.isEmpty()){
             return new ModelAndView("error_pages/error_page_file");
         }
-        if (program.isEmpty() == true){
+        if (program.isEmpty()){
             return new ModelAndView("error_pages/error_page_program");
         }
 
@@ -70,10 +70,11 @@ public class HealthCheckResultController {
             ArrayList<HealthCheckResult> testResults = pf_data.getTestResults();
 
             if(testResults.size() == 0){
-                return new ModelAndView("health_check_result_success");
+                return new ModelAndView("health_check_result_success", "filename", uploadedFile.getOriginalFilename());
             }
             else
-                return new ModelAndView("health_check_result", "testresults", testResults);
+                return new ModelAndView("health_check_result", "testresults", testResults).addObject(
+                        "filename", uploadedFile.getOriginalFilename());
         }
         catch (Exception ex)
         {
