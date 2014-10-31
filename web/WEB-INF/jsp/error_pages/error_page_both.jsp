@@ -9,7 +9,10 @@
 
     <div class="container">
 
-        Big Brother Upload
+        <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Error!</strong> Please specify a program and file to check
+        </div>
 
         <br>
 

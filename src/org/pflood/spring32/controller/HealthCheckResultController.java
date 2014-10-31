@@ -42,6 +42,18 @@ public class HealthCheckResultController {
             throw new UnavailableException("Couldn't get database.");
         }
 
+        // Form validation
+        // TODO - Replace with client side validation
+        if (uploadedFile.isEmpty() == true && program.isEmpty() == true){
+            return new ModelAndView("error_pages/error_page_both");
+        }
+        if (uploadedFile.isEmpty() == true){
+            return new ModelAndView("error_pages/error_page_file");
+        }
+        if (program.isEmpty() == true){
+            return new ModelAndView("error_pages/error_page_program");
+        }
+
         if (fileFormat.equals("XLSX"))
             requestParser = new HealthCheckRequestXLSXFileParser(uploadedFile);
         if (fileFormat.equals("CSV"))
@@ -62,7 +74,7 @@ public class HealthCheckResultController {
             Logger.getLogger(HealthCheckResultController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return new ModelAndView("error_page");
+        return new ModelAndView("error_pages/error_page");
     }
 
 }
