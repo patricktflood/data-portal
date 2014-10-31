@@ -42,6 +42,7 @@ public class HealthCheckResultController {
             throw new UnavailableException("Couldn't get database.");
         }
 
+
         // Form validation
         // TODO - Replace with client side validation
         if (uploadedFile.isEmpty() == true && program.isEmpty() == true){
@@ -53,6 +54,7 @@ public class HealthCheckResultController {
         if (program.isEmpty() == true){
             return new ModelAndView("error_pages/error_page_program");
         }
+
 
         if (fileFormat.equals("XLSX"))
             requestParser = new HealthCheckRequestXLSXFileParser(uploadedFile);
@@ -67,7 +69,11 @@ public class HealthCheckResultController {
             pf_data.saveTest(sheetData);
             ArrayList<HealthCheckResult> testResults = pf_data.getTestResults();
 
-            return new ModelAndView("health_check_results", "testresults", testResults);
+            if(testResults.size() == 0){
+                return new ModelAndView("health_check_result_success");
+            }
+            else
+                return new ModelAndView("health_check_result", "testresults", testResults);
         }
         catch (Exception ex)
         {
