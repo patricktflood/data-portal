@@ -15,7 +15,6 @@
         padding-top: 60px; /* Container below navbar */
     }
 </style>
-<%--<link href="../../components/css/pfdp_bootstrap-responsive.css" rel="stylesheet">--%>
 
 
 
