@@ -9,7 +9,8 @@
 
     <div class="container">
 
-        Data Extraction, work in progress
+        <span class="badge badge-info">!</span>
+        <span class="label label-info">Data Extraction, work in progress</span>
 
         <br>
 
