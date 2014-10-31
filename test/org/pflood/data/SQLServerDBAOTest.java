@@ -97,7 +97,7 @@ public class SQLServerDBAOTest {
     @Test
     public void testGetTestResults() throws SQLException {
         try{
-            expectedResult = new HealthCheckResult("TEST", "-1", "99/99/1970",
+            expectedResult = new HealthCheckResult("TEST", "-1", "999/01/1970",
                     "[DOB] must be in dd/mm/yyyy format", "4");
             expectedResultArray = new ArrayList<HealthCheckResult>();
             expectedResultArray.add(expectedResult);
@@ -106,25 +106,26 @@ public class SQLServerDBAOTest {
             testDBAO.con.setAutoCommit(false);
 
             stmt = testDBAO.con.createStatement();
-            String sql1 = "delete * from [pf_data].[dbo].[filechecker_test] ";
+            String sql1 = "truncate table [pf_data].[dbo].[filechecker_test] ";
             stmt.executeUpdate(sql1);
 
             // Insert error row into [filechecker_test]
             String sql2 = "insert into [pf_data].[dbo].[filechecker_test] " +
-                    "values ('1', 'Patrick', 'Flood', '01/01/1970')";
+                    "values ('-1', 'Patrick', 'Flood', '999/99/1970')";
             stmt.executeUpdate(sql2);
 
             resultArray = testDBAO.getTestResults();
 
-            System.out.println("aaa " + resultArray.get(0));
+            stmt.executeUpdate(sql1);
 
-            assertEquals(resultArray, expectedResultArray);
+            assertEquals(resultArray.size(), 1);
+            assertEquals(resultArray.size(), expectedResultArray.size());
+            assertEquals(resultArray.get(0).getID(), expectedResultArray.get(0).getID());
         }
         catch (Exception ex) {
             ex.getMessage();
         }
         finally{
-            testDBAO.con.rollback();
             testDBAO.remove();
         }
 
