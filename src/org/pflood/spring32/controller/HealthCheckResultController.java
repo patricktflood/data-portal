@@ -59,7 +59,7 @@ public class HealthCheckResultController {
         if (fileFormat.equals("XLSX"))
             requestParser = new HealthCheckRequestXLSXFileParser(uploadedFile);
         if (fileFormat.equals("CSV"))
-            return new ModelAndView("csv_unsupported");
+            return new ModelAndView("error_pages/csv_unsupported");
 
         sheetData = requestParser.getSheetData();
 
