@@ -1,3 +1,4 @@
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +12,17 @@
 
         <br>
         <h3>Health Check Results for ${filename}</h3>
-        <br>
+
+        <span class="badge badge-important">!</span>
+        <span class="label label-important"> ${fn:length(testresults)} Errors found</span>
+
+        <br><br>
 
         <table class="table">
-            <tr>
+            <tr bgcolor="#8dc0d9">
                 <td>ID</td>
-                <td>Error Message</td>
-                <td>Value</td>
+                <td>ERROR MESSAGE</td>
+                <td>VALUE</td>
             </tr>
             <c:forEach items="${testresults}" var="result">
                 <tr class="error">
